@@ -1,0 +1,45 @@
+{% extends 'bncmp/base.html' %}
+{% block body %}
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">CMIIS</h1>
+                <p>Contract Management Integrated Information System</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-header">
+                        Stolen & Force Majeure
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'dashboard' %}">Dashboard</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{% url 'tracker' %}">Tracker</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Spare Part Management
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'dimensioning' %}">Dimensioning</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{% url 'inventory' %}">Inventory</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </main>
+{% endblock body %}

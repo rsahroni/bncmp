@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CMIIS - {{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="{% static 'css/navbar-top-fixed.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <a class="navbar-brand" href="/">CMIIS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                {% if title == "Home" %}
+                    <li class="nav-item {% if title == "Home" %}active{% endif %}">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item dropdown {% if title == "Stolen & Force Majeure" %}active{% endif %}">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stolen & Force Majeure</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
+                        <a class="dropdown-item" href="{% url 'tracker' %}">Tracker</a>
+                        <a class="dropdown-item" href="{% url 'sites' %}">Sites</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown {% if title == "Sparepart Mgt" %}active{% endif %}">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sparepart Mgt</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown02">
+                        <a class="dropdown-item" href="{% url 'dimensioning' %}">Dimensioning</a>
+                        <a class="dropdown-item" href="{% url 'inventory' %}">Inventory</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    {% block body %}
+    
+    {% endblock body %}
+
+    <script src="{% static 'vendor/jquery/jquery.js' %}" type="text/javascript"></script>
+    <script src="{% static 'vendor/popper/popper.js' %}" type="text/javascript"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}" type="text/javascript"></script>
+</body>
+</html>
